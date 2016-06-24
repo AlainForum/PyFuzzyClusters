@@ -18,5 +18,5 @@ def statistical_guess(x, q):
         Cluster centers.
 
     """
-    c = 2 * np.std(x, axis=1) * np.random.random((q, x.shape[1])) + np.mean(x, axis=1)
+    c = 2 * np.std(x, axis=0) * (np.random.random((q, x.shape[1]))-0.5) + np.mean(x, axis=0)
     return c
