@@ -1,6 +1,8 @@
 import numpy as np
 import abc
-import distance
+from clustering import distance
+
+from clustering.initialization import statistical_guess
 
 
 class AlternatingOptimization:
@@ -40,7 +42,7 @@ class AlternatingOptimization:
 
         # Set initial values
         self.D = None  # Distance matrix
-        self.C = guess_prototypes(x, n_clusters)  # Cluster centers
+        self.C = statistical_guess(x, n_clusters)  # Cluster centers
         self.W = 0  # Cluster weights
         self.U = None  # Cluster memberships
         self.J = np.inf
